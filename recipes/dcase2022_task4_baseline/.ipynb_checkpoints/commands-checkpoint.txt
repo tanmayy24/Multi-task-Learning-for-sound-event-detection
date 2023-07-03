@@ -1,0 +1,32 @@
+cd ntu
+cd MTL*
+cd DES*
+cd rec* 
+cd d*
+pip install torchlibrosa
+source activate /notebooks/ntu/MTL/dcase
+
+python train_sed_stage_two_low.py --strong_real
+python train_sed_stage_two.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_49/last.ckpt
+
+
+python train_sed_fixmatch_u.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_62/last.ckpt
+python sed_generate_labels_fusion.py
+
+python train_sed_no_external_data_stage_two.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_42/last.ckpt
+
+python train_sed_fixmatch.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_47/last.ckpt
+
+
+python train_sed_stage_two_e_ps.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_80/last.ckpt
+
+python generate_pseudo_weak_labels_panns.py --eval_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/epoch=65-step=7787.ckpt
+
+
+python train_sed_stage_two_low.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_46/last.ckpt
+
+python train_sed_stage_two_MTL.py --strong_real --resume_from_checkpoint=/notebooks/ntu/MTL/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_2/last.ckpt\
+#############################################################################################
+
+
+python train_sed_stage_two_MTL_FDY.py --strong_real --resume_from_checkpoint=/notebooks/ntu/MTL/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_0

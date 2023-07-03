@@ -1,0 +1,8 @@
+README.md
+setup.py
+desed_task/data_augm.py
+desed_task.egg-info/PKG-INFO
+desed_task.egg-info/SOURCES.txt
+desed_task.egg-info/dependency_links.txt
+desed_task.egg-info/requires.txt
+desed_task.egg-info/top_level.txt
