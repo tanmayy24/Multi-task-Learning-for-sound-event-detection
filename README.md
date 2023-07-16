@@ -1,16 +1,12 @@
-# DESED_task
-Domestic environment sound event detection task.
-
+# A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds
+Domestic environment sound event detection task leveraging some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data.
 ---
 
 ## DCASE Task 4
-Baseline DCASE Task 4 recipes: 
-- [DCASE 2021 Task 4](./recipes/dcase2021_task4_baseline)
+Multitask Learning DCASE Task 4 recipe: 
 - [DCASE 2022 Task 4](./recipes/dcase2022_task4_baseline)
 
-Updates on the [website][dcase_website] and [join us][invite_dcase_slack] in the dedicated
-[slack channel][slack_channel].
-
+Challenge website [here][dcase_website] 
 
 [dcase_website]: https://dcase.community
 [desed]: https://github.com/turpaultn/DESED
@@ -21,11 +17,11 @@ Updates on the [website][dcase_website] and [join us][invite_dcase_slack] in the
 
 ## Installation Notes
 
-### You want to run a recipe or DCASE Task 4 baseline system
+### You want to run the MTL DCASE 2022 Task 4 system
 
-Go to `./recipes/YOUR_DESIRED_RECIPE` and follow the instructions there in the `README.md`
+Go to `./recipes/dcase2022_task4_baseline` and follow the instructions there in the `README.md`
 
-In each recipe we provide a conda script which creates a suitable conda environment with all dependencies, including 
+In the recipe, we provide a conda script that creates a suitable conda environment with all dependencies, including 
 **pytorch** with GPU support in order to run the recipe. There are also instructions for data download and preparation. 
 
 
@@ -33,15 +29,14 @@ In each recipe we provide a conda script which creates a suitable conda environm
 Run `python setup.py install` to install the desed_task package 
 
 
-## Your own recipes ?
-If you want to share your recipe in this repo, do not hesitate to create a pull request.
-To be able to contribute/modify the code install `desed_task` via `python setup.py develop`.
+## Citation
+**If this work is helpful, please feel free to cite the following paper:**
+
+Khandelwal, T. and R. K. Das. 2023. “A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds”. Interspeech. <br />
+To access the paper<br />
+[Arxiv](https://arxiv.org/abs/2305.10729)
 
 
-### Note
 
-By default a `pre-commit` is installed via `requirements.txt`. 
-The pre-commit hook checks for **Black formatting** on the whole repository. 
-Black ensures that code style is consistent through the whole repository and recipes for better readability. 
 
 
