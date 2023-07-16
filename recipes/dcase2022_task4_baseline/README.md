@@ -3,9 +3,14 @@
 ---
 
 ## Requirements
-
 The script `conda_create_environment.sh` is available to create an environment that runs the
 following code (recommended to run line by line in case of problems).
+
+## Description
+In this study, we leverage some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data. We use the DCASE Task 4 2022 dataset and categorize the 10 classes into four subcategories based on their high-level acoustic characteristics. We then introduce a novel multi-task learning framework that jointly trains the SED and high-level acoustic characteristics classification tasks using shared layers and weighted loss. Our method significantly improves the performance of the SED system, achieving a 36.3% improvement in terms of the polyphonic sound event detection score compared to the baseline on the DCASE 2022 Task 4 validation set. 
+
+![Screenshot](system.png)
+
 
 ## Dataset
 You can download the development dataset using the script: `generate_dcase_task4_2022.py`.
@@ -31,18 +36,13 @@ If the user already has downloaded part of the dataset, it does not need to re-d
 
  `python generate_dcase_task4_2022.py --only_synth`
 
-
-Once the dataset is downloaded, the user should find the folder **missing_files**, containing the list of files from the real-world dataset (desed_real) which was not possible to download. You need to download it and **send your missing files to the task
-organisers to get the complete dataset** (in priority to Francesca Ronchini and Romain serizel).
-
-
 ### Development dataset
 
-The dataset is composed by 4 different splits of training data: 
+The dataset is composed of 4 different splits of training data: 
 - Synthetic training set with strong annotations
 - Strong labeled training set **(only for the SED Audioset baseline)**
 - Weak labeled training set 
-- Unlabeled in domain training set
+- Unlabeled in the domain training set
 
 #### Synthetic training set with strong annotations
 
