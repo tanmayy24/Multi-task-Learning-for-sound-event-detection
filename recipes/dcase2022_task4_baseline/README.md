@@ -1,4 +1,4 @@
-### DCASE2022 Task 4 MTL Setup for Sound Event Detection in Domestic Environments.
+### DCASE 2022 Task 4 MTL Setup for Sound Event Detection in Domestic Environments.
 
 ---
 
@@ -7,7 +7,7 @@ The script `conda_create_environment.sh` is available to create an environment t
 following code (recommended to run line by line in case of problems).
 
 ## Description
-In this study, we leverage some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data. We use the DCASE Task 4 2022 dataset and categorize the 10 classes into four subcategories based on their high-level acoustic characteristics. We then introduce a novel multi-task learning framework that jointly trains the SED and high-level acoustic characteristics classification tasks using shared layers and weighted loss. Our method significantly improves the performance of the SED system, achieving a 36.3% improvement in terms of the polyphonic sound event detection score compared to the baseline on the DCASE 2022 Task 4 validation set. 
+In this study, we leverage some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data. We use the DCASE Task 4 2022 dataset and categorize the 10 classes into four subcategories based on their high-level acoustic characteristics. We then introduce a novel multi-task learning framework that jointly trains the SED and high-level acoustic characteristics classification tasks using shared layers and weighted loss. Our method significantly improves the performance of the SED system, achieving a 36.3% improvement in terms of the polyphonic sound event detection score compared to the baseline on the DCASE 2022 Task 4 validation set.
 
 ![Screenshot](system.jpg)
 
@@ -65,7 +65,6 @@ The strong annotations are provided in a tab separated csv file under the follow
 `[filename (string)][tab][onset (in seconds) (float)][tab][offset (in seconds) (float)][tab][event_label (string)]`
 
 For example: Y07fghylishw_20.000_30.000.wav 0.163 0.665 Dog
-
 
 #### Weak labeled training set 
 
