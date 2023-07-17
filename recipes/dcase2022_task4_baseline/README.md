@@ -15,9 +15,9 @@ In this study, we leverage some distinctive high-level acoustic characteristics 
 ## Dataset
 You can download the development dataset using the script: `generate_dcase_task4_2022.py`.
 The development dataset is composed of two parts:
-- real-world data ([DESED dataset][desed]): this part of the dataset is composed of strong labels, weak labels, unlabeled, and validation data which are coming from [Audioset][audioset].
+- real-world data: this part of the dataset is composed of strong labels, weak labels, unlabeled, and validation data which are coming from Audioset.
 
-- synthetically generated data: this part of the dataset is composed of synthetically soundscapes, generated using [Scaper][scaper]. 
+- synthetically generated data: this part of the dataset is composed of synthetic soundscapes, generated using Scaper. 
 
 ### Usage:
 Run the command `python generate_dcase_task4_2022.py --basedir="../../data"` to download the dataset (the user can change basedir to the desired data folder.)
@@ -46,7 +46,7 @@ The dataset is composed of 4 different splits of training data:
 
 #### Synthetic training set with strong annotations
 
-This set is composed of **10000** clips generated with the [Scaper][scaper] soundscape synthesis and augmentation library. The clips are generated such that the distribution per event is close to that of the validation set.
+This set is composed of **10,000** clips generated with the Scaper soundscape synthesis and augmentation library. The clips are generated such that the distribution per event is close to that of the validation set.
 
 The strong annotations are provided in a tab separated csv file under the following format:
 
@@ -56,7 +56,7 @@ For example: YOTsn73eqbfc_10.000_20.000.wav 0.163 0.665 Alarm_bell_ringing
 
 #### Strong labeled training set 
 
-This set is composed of **3470** audio clips coming from [Audioset][audioset]. 
+This set is composed of **3,470** audio clips coming from Audioset. 
 
 **This set is used at training only for the SED Audioset baseline.** 
 
@@ -68,7 +68,7 @@ For example: Y07fghylishw_20.000_30.000.wav 0.163 0.665 Dog
 
 #### Weak labeled training set 
 
-This set contains **1578** clips (2244 class occurrences) for which weak annotations have been manually verified for a small subset of the training set. 
+This set contains **1,578** clips (2,244 class occurrences) for which weak annotations have been manually verified for a small subset of the training set. 
 
 The weak annotations are provided in a tab separated csv file under the following format:
 
@@ -78,11 +78,7 @@ For example: Y-BJNMHMZDcU_50.000_60.000.wav Alarm_bell_ringing,Dog
 
 #### Unlabeled in the domain training set
 
-This set contains **14412** clips. The clips are selected such that the distribution per class (based on Audioset annotations) is close to the distribution in the labeled set. However, given the uncertainty on Audioset labels, this distribution might not be exactly similar.
-
-The dataset uses [FUSS][fuss_git], [FSD50K][FSD50K], [desed_soundbank][desed] and [desed_real][desed]. 
-
-For more information regarding the dataset, please refer to the [previous year DCASE Challenge website][dcase_21_dataset]. 
+This set contains **14,412** clips. The clips are selected such that the distribution per class (based on Audioset annotations) is close to the distribution in the labeled set. However, given the uncertainty on Audioset labels, this distribution might not be exactly similar.
 
 ## Training
 We provide the following **setup** for the task:
@@ -93,10 +89,13 @@ The **SED system** can be run from scratch using the following command:
 
 `python train_sed_stage_two_MTL.py.py`
 
+To run the **SED system** from scratch with Audioset External, use the following command:
+`python train_sed_stage_two_MTL.py.py --strong_real`
+
 ---
 
 Note that the default training config will use GPU 0. 
-Alternatively, we provide a [pre-trained checkpoint][zenodo_pretrained_models] along with tensorboard logs. The baseline can be tested on the development set of the dataset using the following command:
+Alternatively, we provide tensorboard logs. The baseline can be tested on the development set of the dataset using the following command:
 
 `python train_sed_stage_two_MTL.py.py --test_from_checkpoint /path/to/downloaded.ckpt`
 
@@ -121,20 +120,12 @@ Training can be resumed using the following command:
 | TSS + MTL (α=0.9)                | 0.490 | 0.729 | 1.219         | 
 
 #### References
-[1] L. Delphin-Poulat & C. Plapous, technical report, dcase 2019.
+[1] Delphin-Poulat, L. and C. Plapous, “Mean teacher with data augmentation for DCASE 2019 Task 4”, Technical Report, Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge, 2019. 
 
-[2] Turpault, Nicolas, et al. "Sound event detection in domestic environments with weakly labeled data and soundscape synthesis."
+[2] Turpault, N., R. Serizel, A. Shah, and J. Salamon, “Sound Event Detection in Domestic Environments with Weakly Labeled Data and Soundscape Synthesis”, Detection and Classification of Acoustic Scenes and Events (DCASE) Workshop, pp. 253–257, 2019.
 
-[3] Zhang, Hongyi, et al. "mixup: Beyond empirical risk minimization." arXiv preprint arXiv:1710.09412 (2017).
+[3] Ronchini, F., Serizel, R., Turpault, N., & Cornell, S., "The impact of non-target events in synthetic soundscapes for sound event detection", Detection and Classification of Acoustic Scenes and Events (DCASE) Workshop, 2021.
 
-[4] Thomee, Bart, et al. "YFCC100M: The new data in multimedia research." Communications of the ACM 59.2 (2016)
+[4] Ronchini, F. and Serizel, R., "A Benchmark of State-of-the-Art Sound Event Detection Systems Evaluated on Synthetic Soundscapes," IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 1031-1035, 2022.
 
-[5] Wisdom, Scott, et al. "Unsupervised sound separation using mixtures of mixtures." arXiv preprint arXiv:2006.12701 (2020).
-
-[6] Turpault, Nicolas, et al. "Improving sound event detection in domestic environments using sound separation." arXiv preprint arXiv:2007.03932 (2020).
-
-[7] Ronchini, Francesca, et al. "The impact of non-target events in synthetic soundscapes for sound event detection." arXiv preprint arXiv:2109.14061 (DCASE2021)
-
-[8] Ronchini, Francesca, et al. "A benchmark of state-of-the-art sound event detection systems evaluated on synthetic soundscapes." arXiv preprint arXiv:2202.01487 
-
-[9] Khandelwal, T., R. K. Das, et al. “A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds”. Interspeech.
+[5] Khandelwal, T. and R. K. Das, “A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds”, Interspeech, 2023.
