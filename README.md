@@ -32,8 +32,8 @@ Run `python setup.py install` to install the desed_task package
 ## Citation
 **If this work is helpful, please feel free to cite the following paper:**
 
-Khandelwal, T. and R. K. Das. 2023. “A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds”. Interspeech. <br />
-To access the paper<br />
+"Tanmay Khandelwal and Rohan Kumar Das, “A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds”, in Proc. Interspeech 2023, Dublin, Ireland, August 2023."<br />
+To access the paper: 
 [Arxiv](https://arxiv.org/abs/2305.10729)
 
 
