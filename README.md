@@ -1,5 +1,6 @@
 # A Multi-Task Learning Framework for Sound Event Detection using High-level Acoustic Characteristics of Sounds
-### Domestic environment sound event detection task leveraging some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data.
+
+#### Domestic environment sound event detection task leveraging some distinctive high-level acoustic characteristics of various sound events to assist the SED model training, without requiring additional labeled data.
 ---
 
 ## DCASE Task 4
